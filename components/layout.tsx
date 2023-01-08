@@ -5,72 +5,43 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import React from 'react';
 
-const name = "HENOZIWD";
-export const siteTitle = "Next.js Sample Website";
+export const siteTitle = "Like a Diamond";
 
-interface LayoutProps {
-    children: React.ReactNode;
-    home?: boolean;
-};
-
-export default function Layout({ children, home }: LayoutProps) {
+export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (
-        <div className={styles.container}>
-            <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <meta
-                    name="description"
-                    content="Learn how to build a personal website using Next.js"
-                />
-                <meta
-                    property="og:image"
-                    content={`https://og-image.vercel.app/${encodeURI(
-                        siteTitle,
-                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-                />
-                <meta name="og:title" content={siteTitle} />
-                <meta name="twitter:card" content="summary_large_image" />
-            </Head>
+        <>
+        <Head>
+            <link rel="icon" href="/favicon.ico" />
+            <meta
+                name="description"
+                content="Henoziwd's personal blog."
+            />
+            <meta
+                property="og:image"
+                content={`https://og-image.vercel.app/${encodeURI(
+                    siteTitle,
+                )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+            />
+            <meta name="og:title" content={siteTitle} />
+            <meta name="twitter:card" content="summary_large_image" />
+        </Head>
+        <div className={styles.wrapper}>
             <header className={styles.header}>
-                {home ? (
-                    <>
-                        <Image
-                            priority
-                            src="/images/profile.jpg"
-                            className={utilStyles.borderCircle}
-                            height={144}
-                            width={144}
-                            alt=""
-                        />
-                        <h1 className={utilStyles.heading2X1}>{name}</h1>
-                    </>
-                ) : (
-                    <>
-                        <Link href="/">
-                            <Image
-                                priority
-                                src="/images/profile.jpg"
-                                className={utilStyles.borderCircle}
-                                height={108}
-                                width={108}
-                                alt=""
-                            />
-                        </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/" className={utilStyles.colorInherit}>
-                                {name}
-                            </Link>
-                        </h2>
-                    </>
-                )}
+                <Link href="/" className={utilStyles.colorInherit}>
+                    Like a Diamond
+                </Link>
             </header>
-            <main>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">← Back to home</Link>
+            <div className={styles.container}>
+                <main>{children}</main>
+            </div>
+            <footer className={styles.footer}>
+                <div className={styles.footerContainer}>
+                    <Link href="https://github.com/HENOZIWD">Henoziwd's Github</Link>
+                    <Link href="https://github.com/HENOZIWD/nextjs-blog">Repository</Link>
                 </div>
-            )}
+            </footer>
         </div>
+        </>
     );
 }

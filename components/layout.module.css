@@ -2,14 +2,39 @@
     max-width: 36rem;
     padding: 0 1rem;
     margin: 3rem auto 6rem;
+    flex: 1;
 }
 
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    padding: 1rem 0;
+    border-bottom: 1.5px solid black;
+    background-color: white;
 }
 
 .backToHome {
     margin: 3rem 0 0;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.footer {
+    padding: 0.5rem 0;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
