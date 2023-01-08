@@ -44,7 +44,11 @@
 }
 
 .listItem {
-    margin: 0 0 1.25rem;
+    padding: 1.25rem;
+}
+
+.listItem:hover {
+    background-color: #ffe9ba;
 }
 
 .lightText {

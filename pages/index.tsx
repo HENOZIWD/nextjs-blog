@@ -22,7 +22,7 @@ export default function Home({ allPostsData }: InferGetStaticPropsType<typeof ge
 
   return (
     <>
-    <Layout home={true}>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -30,7 +30,7 @@ export default function Home({ allPostsData }: InferGetStaticPropsType<typeof ge
         <p>Hello, I'm Donghyeon.</p>
         <p>
           (This is a sample website - you'll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+          <Link href="https://nextjs.org/learn">our Next.js tutorial</Link>.)
           {/* <button onClick={ ()=>{ console.log(allPostsData) }}>check</button> */}
         </p>
       </section>
@@ -38,13 +38,15 @@ export default function Home({ allPostsData }: InferGetStaticPropsType<typeof ge
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData && allPostsData.map(({ id, date, title }) => (
+            <Link href={`/posts/${id}`}>
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              {title}
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
             </li>
+            </Link>
           ))} 
         </ul>
       </section>
