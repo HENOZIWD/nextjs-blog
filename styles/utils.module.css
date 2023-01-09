@@ -41,14 +41,30 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.listContainer {
+    overflow: auto;
+    height: max-content;
+    padding: 0.5rem;
+}
+
+.listContainer::-webkit-scrollbar {
+    display: none;   
 }
 
 .listItem {
-    padding: 1.25rem;
+    padding: 1rem;
 }
 
 .listItem:hover {
-    background-color: #ffe9ba;
+    background-color: #d8d8d8;
+    transition: 0.3s;
+    transform: scale(1.02);
+    border-radius: 1rem;
+    
 }
 
 .lightText {

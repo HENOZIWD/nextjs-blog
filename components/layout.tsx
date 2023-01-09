@@ -26,21 +26,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <meta name="og:title" content={siteTitle} />
             <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <div className={styles.wrapper}>
-            <header className={styles.header}>
-                <Link href="/" className={utilStyles.colorInherit}>
-                    Like a Diamond
-                </Link>
-            </header>
-            <div className={styles.container}>
-                <main>{children}</main>
-            </div>
-            <footer className={styles.footer}>
-                <div className={styles.footerContainer}>
-                    <Link href="https://github.com/HENOZIWD">Henoziwd's Github</Link>
-                    <Link href="https://github.com/HENOZIWD/nextjs-blog">Repository</Link>
-                </div>
-            </footer>
+        <div className={styles.sidebar}>
+            <Link href="/" className={styles.sidebarContents}>category1</Link>
+            <Link href="/" className={styles.sidebarContents}>category2</Link>
+            <Link href="/" className={styles.sidebarContents}>category3</Link>
+            <Link href="/" className={styles.sidebarContents}>category4</Link>
+        </div>
+        <header className={styles.header}>
+            <Link href="/" className={utilStyles.colorInherit}>
+                Like a Diamond
+            </Link>
+        </header>
+        <div className={styles.container}>
+            <main>{children}</main>
         </div>
         </>
     );
