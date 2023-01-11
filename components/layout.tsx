@@ -27,10 +27,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <div className={styles.sidebar}>
-            <Link href="/" className={styles.sidebarContents}>category1</Link>
-            <Link href="/" className={styles.sidebarContents}>category2</Link>
-            <Link href="/" className={styles.sidebarContents}>category3</Link>
-            <Link href="/" className={styles.sidebarContents}>category4</Link>
+            <Link href="/" className={styles.sidebarContents}>Home</Link>
+            <Link href="/blog" className={styles.sidebarContents}>Blog</Link>
+            <Link href="/" className={styles.sidebarContents}>Empty<br />category</Link>
+            <Link href="/" className={styles.sidebarContents}>Settings</Link>
         </div>
         <header className={styles.header}>
             <Link href="/" className={utilStyles.colorInherit}>

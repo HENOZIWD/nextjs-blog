@@ -4,6 +4,10 @@ import Layout from "../../components/layout";
 import { getAllPostIds, getPostData, IPostIds } from "../../lib/posts";
 import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.css";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import Image from "next/image";
+
 
 export default function Post({ postData }: {[key: string]: any}) {
     return (
@@ -14,9 +18,12 @@ export default function Post({ postData }: {[key: string]: any}) {
             <article>
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
                 <div className={utilStyles.lightText}>
-                    <Date dateString={postData.date} />
+                    <Date dateString={postData.firstDate} />
                 </div>
-                <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
+                <ReactMarkdown 
+                    children={postData.contents}
+                    remarkPlugins={[remarkGfm]}
+                />
             </article>
         </Layout>
     );

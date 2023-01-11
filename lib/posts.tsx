@@ -28,7 +28,7 @@ export function getSortedPostsData(): {[key: string]: any} {
     });
 
     return allPostsData.sort((a, b): number => {
-        if (a.date < b.date) {
+        if (a.firstDate < b.firstDate) {
             return 1;
         } else {
             return -1;
@@ -53,15 +53,11 @@ export async function getPostData(id: string): Promise<{[key: string]: any}> {
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     const matterResult = matter(fileContents);
-
-    const processedContent = await remark()
-            .use(html)
-            .process(matterResult.content);
-    const contentHtml = processedContent.toString();
+    const contents = matterResult.content;
 
     return {
         id,
-        contentHtml,
+        contents,
         ...matterResult.data,
     };
 }
