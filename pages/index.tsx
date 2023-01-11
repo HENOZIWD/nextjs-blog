@@ -10,16 +10,17 @@ import React, { useRef } from 'react';
 export const getStaticProps = async () => {
   
   const allPostsData = getSortedPostsData();
+  const threePostsData = allPostsData.slice(0, 3);
   
   return {
     props: {
-      allPostsData,
+      threePostsData,
     },
   };
   
 }
 
-export default function Home({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ threePostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
     <>
@@ -34,26 +35,32 @@ export default function Home({ allPostsData }: InferGetStaticPropsType<typeof ge
           This is my pernonal page for learning Next.js, React, Typescript and CSS.
         </p>
         <p>
-          You can visit <Link href="https://github.com/HENOZIWD/nextjs-blog">my github repository</Link>.
+          You can visit <Link href="https://github.com/HENOZIWD/nextjs-blog" target="_blank" rel="noopener noreferrer">my github repository</Link>.
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <div className={utilStyles.listContainer}>
           <ul className={utilStyles.list}>
-            {allPostsData && allPostsData.map(({ id, date, title }) => (
-              <Link href={`/posts/${id}`}>
-              <li className={utilStyles.listItem} key={id}>
-                {title}
-                <br />
-                <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
-                </small>
-              </li>
+            {threePostsData && threePostsData.map(({ id, firstDate, title, updateDate }) => (
+              <Link href={`/blog/${id}`} key={id}>
+                <li className={utilStyles.listItem}>
+                  {title}
+                  <br />
+                  <small className={utilStyles.lightText}>
+                    <Date dateString={firstDate} />
+                    {updateDate && 
+                      <>
+                        &nbsp;updated&nbsp;
+                        <Date dateString={updateDate} />
+                      </>}
+                  </small>
+                </li>
               </Link>
             ))} 
           </ul>
         </div>
+        <Link href="/blog">show more</Link>
       </section>
     </Layout>
     </>

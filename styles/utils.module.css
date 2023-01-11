@@ -48,7 +48,8 @@
 .listContainer {
     overflow: auto;
     height: max-content;
-    padding: 0.5rem;
+    padding: 0.5rem 1.5rem 1.5rem 0.5rem;
+    width: 50vw;
 }
 
 .listContainer::-webkit-scrollbar {
@@ -60,10 +61,11 @@
 }
 
 .listItem:hover {
-    background-color: #d8d8d8;
+    /* background-color: #d8d8d8; */
     transition: 0.3s;
     transform: scale(1.02);
-    border-radius: 1rem;
+    border-radius: 10px;
+    box-shadow: 7px 7px 12px 0.5px gray;
     
 }
 
